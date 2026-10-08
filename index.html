@@ -1,71 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Zed, o Mestre das Sombras | League of Legends</title>
+    <meta name="description" content="Conheça Zed, o Mestre das Sombras e líder da Ordem das Sombras de Ionia: história, habilidades, trailer e campeões relacionados.">
+    <meta name="theme-color" content="#07070a">
+    <meta property="og:title" content="Zed, o Mestre das Sombras">
+    <meta property="og:description" content="História, habilidades e trailer do líder da Ordem das Sombras.">
+    <meta property="og:image" content="./src/imagens/zed-lol-art-uhdpaper.com-4K-5.3352-wp.thumbnail.jpg">
+    <link rel="icon" href="./src/imagens/zed-icon.gif" type="image/gif">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./src/styles.css">
 </head>
 <body>
-    <header>
-        <a href="#"><img id="logo" src="./src/imagens/zed-icon.gif" alt=""></a>
-        <nav>
-            <ul>
-                <a href="#">
-                    <li>Home</li>
-                </a>
+    <header class="header">
+        <div class="container">
+            <a href="./index.html" class="brand" aria-label="Zed — página inicial">
+                <img src="./src/imagens/zed-icon.gif" alt="">
+                Zed
+            </a>
 
-                <a href="./fotos.html">
-                    <li>Skins</li>
-                </a>
-            </ul>
-        </nav>
+            <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav" id="menu" aria-label="Principal">
+                <ul class="nav-list">
+                    <li><a href="./index.html" aria-current="page">Home</a></li>
+                    <li><a href="#historia">História</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#campeoes">Campeões</a></li>
+                    <li><a href="./fotos.html">Galeria</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <div id="banner"></div>
-    <div id="trailer-zed">
-        <div class="content">
-            <video controls class="trailer">
-                <source src="./src/imagens/videoplayback.mp4" type="video/mp4">
-                Seu navegador não possui suporte para videos
-            </video>
-            <div id="sinopse">
-                <p class="description">
-                    Absolutamente impiedoso e implacável, Zed é o líder da Ordem das Sombras; uma organização criada com a intenção de militarizar as tradições marciais e mágicas de Ionia para expulsar os invasores noxianos. Durante a guerra, o desespero o levou a libertar a forma secreta das sombras, uma magia espiritual malévola tão perigosa e manipuladora quanto poderosa. Zed dominou todas essas técnicas proibidas para destruir qualquer coisa que considerasse uma ameaça a sua nação, ou a sua nova ordem.
-                </p>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content reveal">
+                    <span class="eyebrow">League of Legends · Ionia</span>
+                    <h1 class="hero-title">Zed</h1>
+                    <p class="hero-subtitle">O Mestre das Sombras</p>
+                    <p class="hero-text">
+                        Líder da Ordem das Sombras, Zed abraçou técnicas proibidas para proteger Ionia
+                        a qualquer custo. Rápido, letal e implacável.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#historia" class="btn btn-primary">Assistir trailer</a>
+                        <a href="./fotos.html" class="btn btn-ghost">Ver galeria</a>
+                    </div>
+                </div>
+            </div>
+            <a href="#historia" class="scroll-indicator" aria-label="Rolar para a história"></a>
+        </section>
 
-                <a href="https://universe.leagueoflegends.com/pt_BR/story/champion/zed/" target=”_blank”><button class="button">LER BIOGRAFIA</button></a>   
+        <section class="section" id="historia">
+            <div class="container about-grid">
+                <div class="video-frame reveal">
+                    <video controls preload="metadata" poster="./src/imagens/fan-art-zed-league-of-legends-video-games-zed-wallpaper-preview.jpg">
+                        <source src="./src/imagens/videoplayback.mp4" type="video/mp4">
+                        Seu navegador não suporta a reprodução de vídeos.
+                    </video>
+                </div>
 
+                <div class="about-text reveal">
+                    <span class="eyebrow">História</span>
+                    <h2 class="section-title">O líder da Ordem das Sombras</h2>
+                    <p>
+                        Absolutamente impiedoso e implacável, Zed é o líder da Ordem das Sombras, uma
+                        organização criada para militarizar as tradições marciais e mágicas de Ionia e
+                        expulsar os invasores noxianos. Durante a guerra, o desespero o levou a libertar a
+                        forma secreta das sombras, uma magia espiritual malévola tão perigosa e manipuladora
+                        quanto poderosa. Zed dominou essas técnicas proibidas para destruir qualquer coisa
+                        que considere uma ameaça à sua nação ou à sua nova ordem.
+                    </p>
+
+                    <div class="stats">
+                        <div class="stat"><strong>Assassino</strong><span>Função</span></div>
+                        <div class="stat"><strong>Ionia</strong><span>Região</span></div>
+                        <div class="stat"><strong>Energia</strong><span>Recurso</span></div>
+                    </div>
+
+                    <a href="https://universe.leagueoflegends.com/pt_BR/story/champion/zed/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        Ler biografia completa
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section abilities" id="habilidades">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Kit de habilidades</span>
+                    <h2 class="section-title">Domínio das sombras</h2>
+                    <p>Zed usa suas sombras para atacar de vários ângulos ao mesmo tempo e eliminar alvos antes que eles possam reagir.</p>
+                </div>
+
+                <div class="ability-grid">
+                    <article class="ability reveal">
+                        <span class="ability-key">P</span>
+                        <h3>Desprezo pelos Fracos</h3>
+                        <p>Ataques contra inimigos com pouca vida causam dano mágico adicional.</p>
+                    </article>
+                    <article class="ability reveal">
+                        <span class="ability-key">Q</span>
+                        <h3>Shuriken Afiada</h3>
+                        <p>Zed e suas sombras arremessam shurikens que atravessam os inimigos.</p>
+                    </article>
+                    <article class="ability reveal">
+                        <span class="ability-key">W</span>
+                        <h3>Sombra Viva</h3>
+                        <p>Envia uma sombra que imita suas habilidades e permite trocar de lugar com ela.</p>
+                    </article>
+                    <article class="ability reveal">
+                        <span class="ability-key">E</span>
+                        <h3>Corte Sombrio</h3>
+                        <p>Zed e suas sombras golpeiam ao redor, causando dano e lentidão.</p>
+                    </article>
+                    <article class="ability reveal">
+                        <span class="ability-key">R</span>
+                        <h3>Marca da Morte</h3>
+                        <p>Fica imune a dano, avança até o alvo e o marca para uma explosão letal.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="campeoes">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Universo</span>
+                    <h2 class="section-title">Campeões relacionados</h2>
+                    <p>Aliados, rivais e inimigos que cruzaram o caminho do Mestre das Sombras.</p>
+                </div>
+
+                <div class="champion-grid">
+                    <article class="champion-card reveal">
+                        <img src="./src/imagens/League_Infobox_Shen.jpg" alt="Arte de Shen, o Olho do Crepúsculo" loading="lazy">
+                        <div class="champion-info">
+                            <span>Rival</span>
+                            <h3>Shen</h3>
+                            <p>O Olho do Crepúsculo. Antigo irmão de treino de Zed e líder da Ordem Kinkou.</p>
+                        </div>
+                    </article>
+                    <article class="champion-card reveal">
+                        <img src="./src/imagens/League_Infobox_Kayn.jpg" alt="Arte de Kayn, o Ceifador das Sombras" loading="lazy">
+                        <div class="champion-info">
+                            <span>Discípulo</span>
+                            <h3>Kayn</h3>
+                            <p>O Ceifador das Sombras. O aluno mais talentoso da Ordem das Sombras.</p>
+                        </div>
+                    </article>
+                    <article class="champion-card reveal">
+                        <img src="./src/imagens/League_Infobox_Jhin.jpg" alt="Arte de Jhin, o Virtuoso" loading="lazy">
+                        <div class="champion-info">
+                            <span>Inimigo</span>
+                            <h3>Jhin</h3>
+                            <p>O Virtuoso. Um assassino psicótico que Zed caçou em Ionia.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container reveal">
+                <span class="eyebrow">Galeria</span>
+                <h2 class="section-title">Mergulhe nas sombras</h2>
+                <p>Confira artes e wallpapers do Mestre das Sombras em alta qualidade.</p>
+                <a href="./fotos.html" class="btn btn-primary">Ver galeria</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="./index.html" class="brand">
+                    <img src="./src/imagens/zed-icon.gif" alt="">
+                    Zed
+                </a>
+                <nav aria-label="Rodapé">
+                    <ul class="nav-list">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./fotos.html">Galeria</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <span>© <span data-year>2026</span> Todos os direitos reservados.</span>
+                <span>Desenvolvido por Caio Henrique</span>
             </div>
         </div>
-    </div>
-
-    <h2 class="titulo">Campeões relacionados</h2>
-
-    <div class="campeoes-relacionados">
-        <div class="cards-campeoes">
-            <div class="card banner-1">shen</div>
-            <div class="card banner-2">kayn</div>
-            <div class="card banner-3">jhin</div>
-        </div>
-    </div>
-
-    <footer>
-        <img style="object-fit: contain;"  id="logo" src="./src/imagens/zed-icon.gif">
-        <span>Todos os direitos reservaods ©</span>
-        <Span>Desenvolvido por: Caio Henrique</Span>
     </footer>
 
-    <nav class="footer-navigation">
-        <ul class="footer-list">
-            <a href="./index.html">
-                <li>Home</li>
-            </a>
-
-            <a href="./fotos.html">
-                <li>Fotos</li>
-            </a>
-        </ul>
-    </nav>
+    <script src="./src/script.js" defer></script>
 </body>
 </html>

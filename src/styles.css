@@ -1,255 +1,792 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap');
 
-*{
+/* ---------- Tokens ---------- */
+:root {
+    --bg: #07070a;
+    --bg-soft: #0f0f14;
+    --surface: #15151c;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #f2f2f5;
+    --muted: #a1a1ad;
+    --accent: #d21617;
+    --accent-hover: #ff2b2c;
+    --radius: 12px;
+    --max: 1200px;
+    --header-h: 76px;
+    --font-display: "Bebas Neue", Impact, sans-serif;
+    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: black;
-    list-style: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-h);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
     text-decoration: none;
 }
 
-header{
-    height: 90px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-nav{
-    width: 60%;
-}
-
-ul{
-    display: flex;
-    width: 30%;
-    justify-content: space-between;
-}
-
-li{
+ul {
     list-style: none;
-    color: aliceblue;
-    cursor: pointer;
-    font-size: 30px;
-    transition: .5s;
-    font-family: "Bebas Neue", serif;
 }
 
-li:hover{
-    color: #d21617;
+.container {
+    width: min(100% - 32px, var(--max));
+    margin-inline: auto;
 }
 
-#logo{
-    width: 80px;
-    height: auto;
+.section {
+    padding: 112px 0;
 }
 
-#banner{
-    background-image: url('./imagens/zed-lol-art-uhdpaper.com-4K-5.3352-wp.thumbnail.jpg');
-    background-position: 50% 50%;
-    background-size: cover;
-    width: 100%;
-    height: 500px;
+.eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
 }
 
-#banner-2{
-    background-image: url('./imagens/zed-lol-art-uhdpaper.com-4K-5.3352-wp.thumbnail.jpg');
-    background-position: 50% 50%;
-    background-size: cover;
-    width: 100%;
-    height: 500px;
+.section-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1;
+    letter-spacing: 0.02em;
 }
 
-#trailer-zed{
-    width: 100%;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-}
-
-.content {
-    width: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.trailer {
-    width: 90%;
-}
-
-#sinopse{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 50px;
-}
-
-.description{
-    color: #fff;
-    font-size: 25px;
-    font-family: "Bebas Neue", serif;
-    width: 140%;
-}
-
-.button{
-    width: 200px;
-    height: 60px;
-    background-color: #d21617;
-    color: #fff;
-    padding: 8px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: .8s;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    border: none;
-    outline: none;
-    margin-top: 25px;
-}
-
-.button:hover{
-    background-color: #fff;
-    color: #000;
-}
-
-.titulo{
+.section-head {
     text-align: center;
-    padding: 50px;
-    font-size: 45px;
-    font-weight: 500px;
-    font-family: "Bebas Neue", serif;
-    color: #fff;
+    max-width: 640px;
+    margin: 0 auto 56px;
 }
 
-.campeoes-relacionados{
-    width: 100%;
-    display: flex;
+.section-head p {
+    color: var(--muted);
+    margin-top: 16px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    gap: 10px;
+    height: 52px;
+    padding: 0 28px;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color .25s, color .25s, border-color .25s, transform .25s;
 }
 
-.cards-campeoes{
-    width: 80%;
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid var(--accent);
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-ghost:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* ---------- Header ---------- */
+.header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: var(--header-h);
+    z-index: 100;
+    transition: background-color .3s, border-color .3s, backdrop-filter .3s;
+    border-bottom: 1px solid transparent;
+}
+
+.header.scrolled {
+    background: rgba(7, 7, 10, 0.8);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-color: var(--border);
+}
+
+.header .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: 0.08em;
+}
+
+.brand img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.nav-list {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-list a {
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color .25s;
+}
+
+.nav-list a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s;
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] {
+    color: var(--text);
+}
+
+.nav-list a:hover::after,
+.nav-list a[aria-current="page"]::after {
+    transform: scaleX(1);
+}
+
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu-toggle span {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    background: var(--text);
+    transition: transform .3s, opacity .3s;
+}
+
+.menu-toggle span:nth-child(1) { top: 15px; }
+.menu-toggle span:nth-child(2) { top: 21px; }
+.menu-toggle span:nth-child(3) { top: 27px; }
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ---------- Hero ---------- */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: url('./imagens/zed-lol-art-uhdpaper.com-4K-5.3352-wp.thumbnail.jpg') center / cover no-repeat;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(90deg, rgba(7, 7, 10, 0.95) 0%, rgba(7, 7, 10, 0.7) 45%, rgba(7, 7, 10, 0.2) 100%),
+        linear-gradient(0deg, var(--bg) 0%, transparent 35%);
+}
+
+.hero-content {
+    max-width: 620px;
+    padding-top: var(--header-h);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(96px, 18vw, 200px);
+    line-height: .85;
+    letter-spacing: 0.02em;
+}
+
+.hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 32px);
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin: 8px 0 24px;
+}
+
+.hero-text {
+    color: #d0d0d8;
+    font-size: 18px;
+    max-width: 520px;
+    margin-bottom: 40px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 32px;
+    width: 26px;
+    height: 42px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    transform: translateX(-50%);
+}
+
+.scroll-indicator::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 4px;
+    height: 8px;
+    border-radius: 2px;
+    background: #fff;
+    transform: translateX(-50%);
+    animation: scroll 1.8s infinite;
+}
+
+@keyframes scroll {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, 14px); }
+}
+
+/* ---------- About ---------- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.video-frame {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 30px 80px -20px rgba(210, 22, 23, 0.35);
+}
+
+.video-frame video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #000;
+}
+
+.about-text .section-title {
+    margin-bottom: 24px;
+}
+
+.about-text p {
+    color: var(--muted);
+    margin-bottom: 32px;
+}
+
+.stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    row-gap: 20px;
-    column-gap: 40px;
+    gap: 16px;
+    margin-bottom: 40px;
 }
 
-.card{
+.stat {
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+}
+
+.stat strong {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+}
+
+.stat span {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ---------- Abilities ---------- */
+.abilities {
+    background: var(--bg-soft);
+    border-block: 1px solid var(--border);
+}
+
+.ability-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.ability {
+    padding: 28px 22px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: border-color .3s, transform .3s;
+}
+
+.ability:hover {
+    border-color: rgba(210, 22, 23, 0.6);
+    transform: translateY(-4px);
+}
+
+.ability-key {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(210, 22, 23, 0.12);
+    color: var(--accent);
+    font-family: var(--font-display);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.ability h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 26px;
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.ability p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ---------- Champions ---------- */
+.champion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.champion-card {
+    position: relative;
+    aspect-ratio: 3 / 4.4;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    isolation: isolate;
+}
+
+.champion-card img {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: 600px;
-    background-size: cover;
-    background-position: 50% 50%;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 1s;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 0 20px 10px;
-    color: #fff;
-    font-size: 30px;
-    font-family: "Bebas Neue", serif;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    transition: transform .8s cubic-bezier(.2, .7, .2, 1);
 }
 
-.banner-1{
-    background-image: url('./imagens/League_Infobox_Shen.jpg');
+.champion-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(0deg, rgba(7, 7, 10, 0.95) 0%, rgba(7, 7, 10, 0.2) 55%, transparent 100%);
 }
 
-.banner-2{
-    background-image: url('./imagens/League_Infobox_Kayn.jpg');
-}
-
-.banner-3{
-    background-image: url('./imagens/League_Infobox_Jhin.jpg');
-}
-
-.card:hover {
+.champion-card:hover img {
     transform: scale(1.08);
 }
 
-footer {
-    height: 150px;
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+.champion-info {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 28px;
 }
 
-span {
+.champion-info span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.champion-info h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 1;
+    margin: 6px 0 10px;
+}
+
+.champion-info p {
+    color: #c6c6cf;
+    font-size: 14px;
+}
+
+/* ---------- CTA ---------- */
+.cta {
+    position: relative;
+    text-align: center;
+    padding: 120px 0;
+    background: url('./imagens/fan-art-zed-league-of-legends-video-games-zed-wallpaper-preview.jpg') center / cover no-repeat;
+    isolation: isolate;
+}
+
+.cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(7, 7, 10, 0.82);
+}
+
+.cta p {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 16px auto 36px;
+}
+
+/* ---------- Page hero (Galeria) ---------- */
+.page-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 72px;
+    background: url('./imagens/zed-lol-art-uhdpaper.com-4K-5.3352-wp.thumbnail.jpg') center 30% / cover no-repeat;
+    isolation: isolate;
+}
+
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(0deg, var(--bg) 0%, rgba(7, 7, 10, 0.55) 60%, rgba(7, 7, 10, 0.75) 100%);
+}
+
+.page-hero p {
+    color: #d0d0d8;
+    max-width: 540px;
+    margin-top: 16px;
+}
+
+/* ---------- Gallery ---------- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    cursor: zoom-in;
+    background: var(--surface);
+    padding: 0;
+    aspect-ratio: 4 / 3;
+}
+
+.gallery-item.wide {
+    grid-column: span 2;
+    aspect-ratio: auto;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s, filter .6s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.gallery-item figcaption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 20px;
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: 24px;
+    letter-spacing: 0.04em;
     color: #fff;
-    font-family: "Bebas Neue", serif;
+    background: linear-gradient(0deg, rgba(7, 7, 10, 0.9), transparent);
 }
 
-.footer-navigation {
-    display: none;
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.92);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s, visibility .3s;
 }
-.footer-list {
+
+.lightbox.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-height: 85vh;
+    border-radius: var(--radius);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    border-top: 1px solid var(--border);
+    padding: 56px 0 32px;
+    background: var(--bg-soft);
+}
+
+.footer-top {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
 }
 
-@media(max-width: 768px){
-    .footer-navigation {
+.footer .nav-list {
+    gap: 32px;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 24px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* ---------- Reveal animation ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+    .ability-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ability:last-child {
+        grid-column: span 2;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 80px 0;
+    }
+
+    .menu-toggle {
         display: block;
     }
 
-    nav{
-        display: none;
+    .header .nav {
+        position: fixed;
+        inset: var(--header-h) 0 auto 0;
+        background: rgba(7, 7, 10, 0.97);
+        border-bottom: 1px solid var(--border);
+        padding: 24px 16px 32px;
+        transform: translateY(-12px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .3s, transform .3s, visibility .3s;
     }
 
-    #banner{
-        background-position: 40%;
+    .header .nav.open {
+        transform: none;
+        opacity: 1;
+        visibility: visible;
     }
 
-    #trailer-container{
-        width: 100%;
-        height: 400px;
-        display: flex;
+    .header.menu-open {
+        background: rgba(7, 7, 10, 0.97);
+    }
+
+    .header .nav-list {
         flex-direction: column;
+        gap: 20px;
     }
 
-    .content{
-        width: 95%;
-        display: flex;
-        flex-direction: column;
+    .header .nav-list a {
+        font-size: 18px;
     }
 
-    .trailer {
-        width: 100%;
+    .hero::before {
+        background:
+            linear-gradient(0deg, var(--bg) 0%, rgba(7, 7, 10, 0.75) 50%, rgba(7, 7, 10, 0.5) 100%);
     }
 
-    #sinopse {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    .hero {
+        background-position: 65% center;
     }
 
-    .titulo{
-        width: 80%;
-        margin-top: 380px;
+    .hero-actions .btn {
+        flex: 1 1 100%;
     }
 
-    .description {
-        width: 100%;
-        margin-top: 1%;
-    }
-
-    .button {
-        width: 100%;
-        margin-top: 30px;
-    }
-
-    .cards-campeoes {
+    .stats {
         grid-template-columns: 1fr;
-        margin-top: 10px;
+    }
+
+    .champion-grid,
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item.wide {
+        grid-column: auto;
+    }
+
+    .ability-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ability:last-child {
+        grid-column: auto;
+    }
+
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
